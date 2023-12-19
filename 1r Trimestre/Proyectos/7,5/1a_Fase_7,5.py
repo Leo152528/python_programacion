@@ -7,18 +7,18 @@
 #El programa te debe dar la opción de repetir o no una nueva partida.
 import random
 continuar="s"
-otra="s"
 while continuar=="s":
     total=0
-    while otra=="s" or total<7.5:
+    otra="s"
+    while otra=="s":
         carta=random.randint(1,12)
         while carta==8 or carta==9:
             carta=random.randint(1,12)
         print("Tu carta es: ",carta)
         if carta>=10:
-            total=total+0,5
+            total=float(total)+0.5
         else:
-            total=total+carta
+            total=float(total)+float(carta)
         print("Tu suma es de: ",total)
         otra=input("Quieres otra carta s/n: ")
     if total==7.5:
