@@ -10,7 +10,7 @@ continuar="s"
 while continuar=="s":
     total=0
     otra="s"
-    while otra=="s":
+    while otra=="s" and total<7.5:
         carta=random.randint(1,12)
         while carta==8 or carta==9:
             carta=random.randint(1,12)
@@ -20,7 +20,8 @@ while continuar=="s":
         else:
             total=float(total)+float(carta)
         print("Tu suma es de: ",total)
-        otra=input("Quieres otra carta s/n: ")
+        if total<=7.5:
+            otra=input("Quieres otra carta s/n: ")  
     if total==7.5:
         print("Enhorabuena, has ganado la partida")
     elif total>7.5:
