@@ -6,7 +6,9 @@
 #Si te plantas con una puntuación inferior a 6. "Quizás tendrías que arriesgar un poco ¿no?
 #El programa te debe dar la opción de repetir o no una nueva partida.
 import random
-continuar="s"
+continuar=input("Quieres empezar una partida s/n: ")
+while continuar!="s" and continuar!="n":
+    continuar=input("No le he entendido, que queria decir: ")
 while continuar=="s":
     total=0
     otra="s"
@@ -21,7 +23,9 @@ while continuar=="s":
             total=float(total)+float(carta)
         print("Tu suma es de: ",total)
         if total<=7.5:
-            otra=input("Quieres otra carta s/n: ")  
+            otra=input("Quieres otra carta s/n: ")
+            while otra!="s" and otra!="n":
+                otra=input("No le he entendido, que queria decir: ")
     if total==7.5:
         print("Enhorabuena, has ganado la partida")
     elif total>7.5:
@@ -31,3 +35,5 @@ while continuar=="s":
     else:
         print("Quizás tendrías que arriesgar un poco ¿no?")
     continuar=input("Introduce si quieres otra parida s/n:")
+    while otra!="s" and otra!="n":
+        otra=input("No le he entendido, que queria decir: ")

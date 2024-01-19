@@ -1,9 +1,11 @@
 import random
 puntos=100
-while puntos>0 :
+continuar=input("Quieres empezar una partida s/n: ")
+while puntos>0 and continuar=="s":
+    print("Tus puntos son:",puntos)
     total=0
     otra="s"
-    while otra=="s":
+    while otra=="s" and total<7.5:
         carta=random.randint(1,12)
         while carta==8 or carta==9:
             carta=random.randint(1,12)
@@ -13,7 +15,10 @@ while puntos>0 :
         else:
             total=float(total)+float(carta)
         print("Tu suma es de: ",total)
-        otra=input("Quieres otra carta s/n: ")
+        if total<=7.5:
+            otra=input("Quieres otra carta s/n: ")
+            while otra!="s" and otra!="n":
+                otra=input("No le he entendido, que queria decir: ")
     if total==7.5:
         print("Enhorabuena, has ganado la partida")
         puntos+=10
@@ -26,4 +31,9 @@ while puntos>0 :
     else:
         print("Quizás tendrías que arriesgar un poco ¿no?")
         puntos-=5
-    continuar=input("Introduce si quieres otra parida s/n:")
+    if puntos>0:
+        continuar=input("Introduce si quieres otra parida s/n:")
+        while otra!="s" and otra!="n":
+                otra=input("No le he entendido, que queria decir: ")
+    else:
+        print("Te has quedado sin puntos")
