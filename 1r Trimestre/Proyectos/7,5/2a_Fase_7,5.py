@@ -1,6 +1,8 @@
 import random
 puntos=100
 continuar=input("Quieres empezar una partida s/n: ")
+while continuar!="s" and continuar!="n":
+    continuar=input("No le he entendido, que queria decir: ")
 while puntos>0 and continuar=="s":
     print("Tus puntos son:",puntos)
     total=0
