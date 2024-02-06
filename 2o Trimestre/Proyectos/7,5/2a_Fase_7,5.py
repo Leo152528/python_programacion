@@ -1,15 +1,10 @@
-#Programa el código que gestione una partida. El programa ofrece una carta, el usuario puede o no
-#aceptar. La puntuación se acumula según el número de carta que aparece al azar. Si consigues que:
-#La puntuación de 7.5, el programa te felicita. "Enhorabuena, has ganado la partida"
-#Si te pasas de 7.5, el programa informa: "Has perdido la partida!"
-#Si te plantas con una puntuación entre 6 y 7 "Has sido un poco conservador"
-#Si te plantas con una puntuación inferior a 6. "Quizás tendrías que arriesgar un poco ¿no?
-#El programa te debe dar la opción de repetir o no una nueva partida.
 import random
+puntos=100
 continuar=input("Quieres empezar una partida s/n: ")
 while continuar!="s" and continuar!="n":
     continuar=input("No le he entendido, que queria decir: ")
-while continuar=="s":
+while puntos>0 and continuar=="s":
+    print("Tus puntos son:",puntos)
     total=0
     otra="s"
     while otra=="s" and total<7.5:
@@ -28,12 +23,19 @@ while continuar=="s":
                 otra=input("No le he entendido, que queria decir: ")
     if total==7.5:
         print("Enhorabuena, has ganado la partida")
+        puntos+=10
     elif total>7.5:
+        puntos-=10
         print("¡Has perdido la partida!")
     elif total>=6 and total<=7:
         print("Has sido un poco conservador")
+        puntos+=5
     else:
         print("Quizás tendrías que arriesgar un poco ¿no?")
-    continuar=input("Introduce si quieres otra parida s/n:")
-    while otra!="s" and otra!="n":
-        otra=input("No le he entendido, que queria decir: ")
+        puntos-=5
+    if puntos>0:
+        continuar=input("Introduce si quieres otra parida s/n:")
+        while otra!="s" and otra!="n":
+                otra=input("No le he entendido, que queria decir: ")
+    else:
+        print("Te has quedado sin puntos")
