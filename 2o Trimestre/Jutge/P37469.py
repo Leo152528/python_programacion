@@ -1,0 +1,5 @@
+x=int(input())
+hora=int(x/3600)
+min=int((x-hora*3600)/60)
+seg=int((x-hora*3600)-(min*60))
+print(hora,min,seg)
